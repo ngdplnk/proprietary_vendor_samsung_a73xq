@@ -85,9 +85,9 @@ jobs:
         if: env.need_update == 1
         run: |
           if [[ "${{ matrix.model }}" == "SM-A736B" ]]; then
-              imei="350315699331839"
+              imei="352828291234563"
           else
-              imei="350315692146044"
+              imei="352828291234563"
           fi
           samfirm -m ${{ matrix.model }} -r ${{ matrix.csc }} -i $imei
 
