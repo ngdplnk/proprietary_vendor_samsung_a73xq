@@ -15,55 +15,31 @@ jobs:
       matrix:
         include:
           # A54X_CHN_OPEN
-          - model: "SM-A5460"
-            csc: "CHC"
-            omc: "CHC"
-          # A54X_CHN_HK
-          - model: "SM-A5460"
-            csc: "BRI"
-            omc: "OZS"
-          # A54X_EUR_OPEN
-          - model: "SM-A546B"
-            csc: "EUX"
-            omc: "OXM"
+          - model: "SM-A736B"
+            csc: "CHL"
+            omc: "CHL"
           # A54X_SEA_OPEN
-          - model: "SM-A546E"
+          - model: "SM-A736B"
             csc: "INS"
             omc: "ODM"
-          - model: "SM-A546E"
+          - model: "SM-A736B"
             csc: "EGY"
             omc: "OJM"
-          - model: "SM-A546E"
+          - model: "SM-A736B"
             csc: "XID"
             omc: "OLE"
-          - model: "SM-A546E"
+          - model: "SM-A736B"
             csc: "XSA"
             omc: "OLM"
-          - model: "SM-A546E"
+          - model: "SM-A736B"
             csc: "PEO"
             omc: "OWB"
-          - model: "SM-A546E"
+          - model: "SM-A736B"
             csc: "ZTO"
             omc: "OWO"
-          - model: "SM-A546E"
+          - model: "SM-A736B"
             csc: "SEK"
             omc: "OXE"
-          # A54X_USA_SINGLEX
-          - model: "SM-A546U"
-            csc: "CCT"
-            omc: "OYN"
-          # A54X_USA_OPEN
-          - model: "SM-A546U1"
-            csc: "XAA"
-            omc: "OYM"
-          # A54X_CAN_SINGLE
-          - model: "SM-A546W"
-            csc: "XAC"
-            omc: "OYV"
-          # A54X_KOR_SKT
-          - model: "SM-A546S"
-            csc: "SKC"
-            omc: "SKC"
 
     steps:
       - name: Checkout repo
@@ -108,20 +84,10 @@ jobs:
       - name: Fetch firmware
         if: env.need_update == 1
         run: |
-          if [[ "${{ matrix.model }}" == "SM-A5460" ]]; then
-              imei="R5CW71BXYRV"
-          elif [[ "${{ matrix.model }}" == "SM-A546B" ]]; then
-              imei="350756481234568"
-          elif [[ "${{ matrix.model }}" == "SM-A546U" ]]; then
-              imei="356044291234563"
-          elif [[ "${{ matrix.model }}" == "SM-A546U1" ]]; then
-              imei="356642731234562"
-          elif [[ "${{ matrix.model }}" == "SM-A546W" ]]; then
-              imei="351617731234569"
-          elif [[ "${{ matrix.model }}" == "SM-A546S" ]]; then
-              imei="351992291234568"
+          if [[ "${{ matrix.model }}" == "SM-A736B" ]]; then
+              imei="350315699331839"
           else
-              imei="350090711234564"
+              imei="350315692146044"
           fi
           samfirm -m ${{ matrix.model }} -r ${{ matrix.csc }} -i $imei
 
