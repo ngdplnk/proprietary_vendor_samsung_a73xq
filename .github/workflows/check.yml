@@ -14,11 +14,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # A54X_CHN_OPEN
           - model: "SM-A736B"
             csc: "CHL"
             omc: "CHL"
-          # A54X_SEA_OPEN
           - model: "SM-A736B"
             csc: "INS"
             omc: "ODM"
@@ -174,9 +172,10 @@ jobs:
       - name: Push changes to repo
         if: env.need_update == 1
         uses: ad-m/github-push-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           tags: true
-          github_token: ${{ secrets.TOKEN }}
 
       - name: Upload release assets
         if: env.need_update == 1
