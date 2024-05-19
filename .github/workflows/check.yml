@@ -30,9 +30,6 @@ jobs:
             csc: "XSA"
             omc: "OLM"
           - model: "SM-A736B"
-            csc: "PEO"
-            omc: "OWB"
-          - model: "SM-A736B"
             csc: "ZTO"
             omc: "OWO"
           - model: "SM-A736B"
@@ -41,7 +38,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@main
         with:
           submodules: true
 
@@ -62,13 +59,13 @@ jobs:
 
       - name: Set up Node.js
         if: env.need_update == 1
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@main
         with:
           node-version: 'latest'
 
       - name: Set up Python 3
         if: env.need_update == 1
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@main
         with:
           python-version: '3.x'
 
@@ -179,7 +176,7 @@ jobs:
 
       - name: Upload release assets
         if: env.need_update == 1
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@main
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
