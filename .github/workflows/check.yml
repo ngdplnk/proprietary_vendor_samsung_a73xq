@@ -15,9 +15,6 @@ jobs:
       matrix:
         include:
           - model: "SM-A736B"
-            csc: "CHL"
-            omc: "CHL"
-          - model: "SM-A736B"
             csc: "INS"
             omc: "ODM"
           - model: "SM-A736B"
@@ -27,7 +24,7 @@ jobs:
             csc: "XID"
             omc: "OLE"
           - model: "SM-A736B"
-            csc: "XSA"
+            csc: "XME"
             omc: "OLM"
           - model: "SM-A736B"
             csc: "ZTO"
