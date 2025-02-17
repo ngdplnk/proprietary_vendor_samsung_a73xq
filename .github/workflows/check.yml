@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: "0 12 * * *"
   push:
+    paths:
+      - '.github/workflows/check.yml'
+      - 'tools/bin/lpunpack.py'
+      - 'current.*'
 
 jobs:
   update:

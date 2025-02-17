@@ -5,6 +5,15 @@ To [download](https://github.com/ngdplnk/proprietary_vendor_samsung_a73xq/releas
 
 <img src="readme-res/omc-info.jpg" width="40%"/>
 
+| OMC | CSC |
+| --- | --- |
+| ODM | INS |
+| OJM | EGY |
+| OLE | XID |
+| OLM | XME |
+| OWO | ZTO |
+| OXE | SEK |
+
 ### Credits
 - [@salvogiangri](https://github.com/salvogiangri) for the original repo and [@Asleeppp](https://github.com/Asleeppp) for previously maintaining the repo for this device.
 - [@jesec](https://github.com/jesec) and [@corsicanu](https://github.com/corsicanu) for the original GitHub Actions script.
