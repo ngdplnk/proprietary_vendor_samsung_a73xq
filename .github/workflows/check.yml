@@ -64,7 +64,7 @@ jobs:
         if: env.need_update == 1
         uses: actions/setup-python@main
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
       - name: Install dependencies
         if: env.need_update == 1
@@ -138,7 +138,7 @@ jobs:
           tar cvf ${{ env.latest_shortversion }}_patched_vbmeta.tar vbmeta.img
           rm vbmeta.img
 
-      - name: Extract vendor and vendor_dlkm partition
+      - name: Extract vendor partition
         if: env.need_update == 1
         run: |
           tar xvf ${{ env.ap_tar }} super.img.lz4
@@ -147,7 +147,7 @@ jobs:
           simg2img super.img super_raw.img
           rm super.img
           mv super_raw.img super.img
-          python3 tools/bin/lpunpack.py -p vendor,vendor_dlkm super.img .
+          python3 tools/bin/lpunpack.py -p vendor super.img .
           rm super.img
           [[ -e vendor.img ]] && zip ${{ env.latest_shortversion }}_vendor.zip vendor.img
           [[ -e vendor.img ]] && rm vendor.img
@@ -188,4 +188,3 @@ jobs:
             ${{ env.pit_file }}
             ${{ env.latest_shortversion }}_patched_vbmeta.tar
             ${{ env.latest_shortversion }}_vendor.zip
-            ${{ env.latest_shortversion }}_vendor_dlkm.zip
