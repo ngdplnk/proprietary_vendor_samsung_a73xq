@@ -14,6 +14,8 @@ To [download](https://github.com/ngdplnk/proprietary_vendor_samsung_a73xq/releas
 | OWO | ZTO |
 | OXE | SEK |
 
+For old binaries please visit [the original repo](https://github.com/Asleeppp/proprietary_vendor_samsung_a73xq).
+
 ### Credits
 - [@salvogiangri](https://github.com/salvogiangri) for the original repo and [@Asleeppp](https://github.com/Asleeppp) for previously maintaining the repo for this device.
 - [@jesec](https://github.com/jesec) and [@corsicanu](https://github.com/corsicanu) for the original GitHub Actions script.
