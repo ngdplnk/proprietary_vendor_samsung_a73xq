@@ -20,3 +20,4 @@ For old binaries please visit [the original repo](https://github.com/Asleeppp/pr
 - [@salvogiangri](https://github.com/salvogiangri) for the original repo and [@Asleeppp](https://github.com/Asleeppp) for previously maintaining the repo for this device.
 - [@jesec](https://github.com/jesec) and [@corsicanu](https://github.com/corsicanu) for the original GitHub Actions script.
 - [@unix3dgforce](https://github.com/unix3dgforce) for his [lpunpack.py](https://github.com/unix3dgforce/lpunpack) script.
+.
