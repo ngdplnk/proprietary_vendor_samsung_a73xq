@@ -172,9 +172,14 @@ class SparseChunkHeader(object):
 class LpMetadataBase:
     _fmt = None
 
-    @classmethod
+    # Don't mix @property and @classmethod decorators
+    # This will cause unexpected behavior
     @property
     def size(cls) -> int:
+        return struct.calcsize(cls._fmt)
+    
+    @classmethod
+    def get_size(cls) -> int: 
         return struct.calcsize(cls._fmt)
 
 
@@ -735,11 +740,11 @@ class LpUnpack(object):
         offsets = metadata.get_offsets()
         for index, offset in enumerate(offsets):
             self._fd.seek(offset, io.SEEK_SET)
-            header = LpMetadataHeader(self._fd.read(cast(int, LpMetadataHeader.size)))
-            header.partitions = LpMetadataTableDescriptor(self._fd.read(cast(int, LpMetadataTableDescriptor.size)))
-            header.extents = LpMetadataTableDescriptor(self._fd.read(cast(int, LpMetadataTableDescriptor.size)))
-            header.groups = LpMetadataTableDescriptor(self._fd.read(cast(int, LpMetadataTableDescriptor.size)))
-            header.block_devices = LpMetadataTableDescriptor(self._fd.read(cast(int, LpMetadataTableDescriptor.size)))
+            header = LpMetadataHeader(self._fd.read(cast(int, LpMetadataHeader.get_size())))
+            header.partitions = LpMetadataTableDescriptor(self._fd.read(cast(int, LpMetadataTableDescriptor.get_size())))
+            header.extents = LpMetadataTableDescriptor(self._fd.read(cast(int, LpMetadataTableDescriptor.get_size())))
+            header.groups = LpMetadataTableDescriptor(self._fd.read(cast(int, LpMetadataTableDescriptor.get_size())))
+            header.block_devices = LpMetadataTableDescriptor(self._fd.read(cast(int, LpMetadataTableDescriptor.get_size())))
 
             if header.magic != LP_METADATA_HEADER_MAGIC:
                 check_index = index + 1
